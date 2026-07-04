@@ -9,6 +9,10 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+// Force static generation at build time
+export const dynamic = "force-static";
+export const revalidate = false;
+
 export default function Home() {
   return (
     <main className="noise-bg">

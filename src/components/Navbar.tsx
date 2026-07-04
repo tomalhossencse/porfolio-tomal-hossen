@@ -37,7 +37,7 @@ export default function Navbar() {
     const [active, setActive] = useState("home");
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [theme, setTheme] = useState<Theme>("device");
+    const [theme, setTheme] = useState<Theme>("dark");
     const [isDark, setIsDark] = useState(true);
 
     useEffect(() => {
@@ -69,7 +69,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const saved = localStorage.getItem("portfolio-theme") as Theme | null;
-        const t: Theme = (saved && CYCLE.includes(saved as Theme)) ? saved as Theme : "device";
+        const t: Theme = (saved && CYCLE.includes(saved as Theme)) ? saved as Theme : "dark";
         applyTheme(t);
         setTheme(t);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps

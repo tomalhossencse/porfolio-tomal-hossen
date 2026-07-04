@@ -13,6 +13,10 @@ export default function CustomCursor() {
     const springX = useSpring(trailX, { stiffness: 120, damping: 22, mass: 0.5 });
     const springY = useSpring(trailY, { stiffness: 120, damping: 22, mass: 0.5 });
 
+    // Glow blob springs (must be declared here, not inside JSX)
+    const blobX = useSpring(trailX, { stiffness: 40, damping: 18 });
+    const blobY = useSpring(trailY, { stiffness: 40, damping: 18 });
+
     const [clicked, setClicked] = useState(false);
     const [hovering, setHovering] = useState(false);
     const [visible, setVisible] = useState(false);
@@ -122,7 +126,7 @@ export default function CustomCursor() {
                         opacity: visible ? (hovering ? 1 : 0.65) : 0,
                         background: hovering
                             ? "rgba(0,212,255,0.1)"
-                            : "transparent",
+                            : "rgba(0,212,255,0)",
                     }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                     style={{
@@ -141,8 +145,8 @@ export default function CustomCursor() {
                     position: "fixed",
                     top: 0,
                     left: 0,
-                    x: useSpring(trailX, { stiffness: 40, damping: 18 }),
-                    y: useSpring(trailY, { stiffness: 40, damping: 18 }),
+                    x: blobX,
+                    y: blobY,
                     translateX: "-50%",
                     translateY: "-50%",
                     zIndex: 9997,

@@ -41,7 +41,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-theme="dark" suppressHydrationWarning>
+      <head>
+        {/* Set theme before paint to avoid flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('portfolio-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':t==='device'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):'dark');})();`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}
