@@ -14,7 +14,7 @@ import { Mail } from "lucide-react";
 import { personalInfo } from "@/data";
 import { BsWhatsapp } from "react-icons/bs";
 
-const AVATAR = "https://i.ibb.co.com/mVqnxghS/1000027089.jpg";
+const AVATAR = "https://i.ibb.co.com/21pJSk7g/tomal-img-Picsart-Background-Remover.png";
 
 const roles = [
     "Full Stack Developer",
@@ -27,12 +27,12 @@ const TECH_PILLS = ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "
 
 // icons shown in the frosted glass strip at bottom of photo card
 const CARD_ICONS = [
-    { icon: SiTypescript, color: "#0571f4ff", label: "Typescript" },
-    { icon: SiReact, color: "#61DAFB", label: "React" },
-    { icon: SiNextdotjs, color: "#FFFFFF", label: "Next.js" },
-    { icon: FaNodeJs, color: "#339933", label: "Node.js" },
-    { icon: SiPostgresql, color: "#07fb30ff", label: "Postgresql" },
-    { icon: SiPrisma, color: "#F7DF1E", label: "Prisma" },
+    { icon: SiTypescript, color: "#3178C6", label: "TypeScript", bg: "rgba(49,120,198,0.15)" },
+    { icon: SiReact, color: "#61DAFB", label: "React", bg: "rgba(97,218,251,0.12)" },
+    { icon: SiNextdotjs, color: "#000000", label: "Next.js", bg: "rgba(0,0,0,0.08)", darkColor: "#FFFFFF", darkBg: "rgba(255,255,255,0.10)" },
+    { icon: FaNodeJs, color: "#339933", label: "Node.js", bg: "rgba(51,153,51,0.15)" },
+    { icon: SiPostgresql, color: "#4169E1", label: "PostgreSQL", bg: "rgba(65,105,225,0.15)" },
+    { icon: SiPrisma, color: "#5A67D8", label: "Prisma", bg: "rgba(90,103,216,0.15)" },
 ];
 
 const socials = [
@@ -49,6 +49,16 @@ export default function Hero() {
     const isDeleting = useRef(false);
     const [roleText, setRoleText] = useState("");
     const [imgErr, setImgErr] = useState(false);
+    const [isLight, setIsLight] = useState(false);
+
+    // track theme changes
+    useEffect(() => {
+        const update = () => setIsLight(document.documentElement.getAttribute("data-theme") === "light");
+        update();
+        const obs = new MutationObserver(update);
+        obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+        return () => obs.disconnect();
+    }, []);
 
     // typewriter
     useEffect(() => {
@@ -219,11 +229,18 @@ export default function Hero() {
                         transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", perspective: 1000 }}
                     >
-                        {/* ── Large blurred gradient orbs behind card ── */}
-                        <div style={{ position: "absolute", width: 340, height: 420, borderRadius: 32, background: "linear-gradient(135deg, rgba(0,212,255,0.22), rgba(99,102,241,0.18))", filter: "blur(48px)", zIndex: 0 }} />
-                        <div style={{ position: "absolute", width: 200, height: 200, top: -40, right: -40, borderRadius: "50%", background: "radial-gradient(circle, rgba(99,102,241,0.3), transparent 70%)", filter: "blur(30px)", zIndex: 0 }} />
+                        {/* Ambient glow — adapts to theme */}
+                        <div style={{ position: "absolute", width: 340, height: 420, borderRadius: 32, background: isLight ? "linear-gradient(135deg, rgba(2,132,199,0.18), rgba(99,102,241,0.14))" : "linear-gradient(135deg, rgba(0,212,255,0.22), rgba(99,102,241,0.18))", filter: "blur(48px)", zIndex: 0, transition: "background 0.4s" }} />
+                        <div style={{ position: "absolute", width: 200, height: 200, top: -40, right: -40, borderRadius: "50%", background: isLight ? "radial-gradient(circle, rgba(99,102,241,0.18), transparent 70%)" : "radial-gradient(circle, rgba(99,102,241,0.3), transparent 70%)", filter: "blur(30px)", zIndex: 0 }} />
 
-                        {/* ── The main photo card ── */}
+                        {/* Animated border ring */}
+                        <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                            style={{ position: "absolute", zIndex: 0, width: 320, height: 420, borderRadius: 28, border: `1px dashed ${isLight ? "rgba(2,132,199,0.25)" : "rgba(0,212,255,0.18)"}`, pointerEvents: "none" }}
+                        />
+
+                        {/* The main photo card */}
                         <motion.div
                             animate={{ y: [0, -10, 0] }}
                             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
@@ -233,15 +250,18 @@ export default function Hero() {
                                 width: 295,
                                 borderRadius: 24,
                                 overflow: "hidden",
-                                boxShadow: "0 36px 90px rgba(0,0,0,0.65), 0 0 0 1px rgba(0,212,255,0.15), 0 0 60px rgba(0,212,255,0.06)",
-                                background: "#070d1c",
+                                boxShadow: isLight
+                                    ? "0 24px 60px rgba(0,0,0,0.18), 0 0 0 1.5px rgba(2,132,199,0.25)"
+                                    : "0 36px 90px rgba(0,0,0,0.65), 0 0 0 1px rgba(0,212,255,0.15), 0 0 60px rgba(0,212,255,0.06)",
+                                background: isLight ? "#deeeff" : "#070d1c",
                                 transformStyle: "preserve-3d",
+                                transition: "background 0.4s, box-shadow 0.4s",
                             }}
                         >
-                            {/* gradient top-bar accent */}
+                            {/* Gradient top-bar accent */}
                             <div style={{ height: 3, background: "linear-gradient(90deg, #00d4ff, #6366f1, #818cf8)", position: "absolute", top: 0, left: 0, right: 0, zIndex: 5 }} />
 
-                            {/* photo */}
+                            {/* Photo area */}
                             <div style={{ position: "relative", width: "100%", paddingBottom: "116%", overflow: "hidden" }}>
                                 {!imgErr ? (
                                     // eslint-disable-next-line @next/next/no-img-element
@@ -249,49 +269,67 @@ export default function Hero() {
                                         src={AVATAR}
                                         alt={personalInfo.name}
                                         onError={() => setImgErr(true)}
-                                        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                                        style={{
+                                            position: "absolute", inset: 0,
+                                            width: "100%", height: "100%",
+                                            objectFit: "cover", objectPosition: "center top",
+                                            // In light mode: multiply blend removes white bg of the photo
+                                            mixBlendMode: isLight ? "multiply" : "normal",
+                                            filter: isLight ? "contrast(1.05) saturate(1.05)" : "brightness(0.97)",
+                                        }}
                                     />
                                 ) : (
-                                    <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(160deg,#0c1e38,#0a1628)", fontSize: "3.5rem", fontWeight: 900, color: "#fff" }}>
+                                    <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: isLight ? "linear-gradient(160deg,#c7e0ff,#e0eeff)" : "linear-gradient(160deg,#0c1e38,#0a1628)", fontSize: "3.5rem", fontWeight: 900, color: isLight ? "#0ea5e9" : "#fff" }}>
                                         {personalInfo.name.split(" ").map(w => w[0]).join("").slice(0, 2)}
                                     </div>
                                 )}
 
-                                {/* bottom gradient fade */}
-                                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 100, background: "linear-gradient(to top, rgba(7,13,28,1) 20%, transparent)", pointerEvents: "none", zIndex: 2 }} />
+                                {/* Bottom gradient fade — theme-aware */}
+                                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 110, background: isLight ? "linear-gradient(to top, rgba(222,238,255,1) 20%, transparent)" : "linear-gradient(to top, rgba(7,13,28,1) 20%, transparent)", pointerEvents: "none", zIndex: 2, transition: "background 0.4s" }} />
 
-                                {/* "Open to Work" — top right pill */}
+                                {/* "Open to Work" badge */}
                                 <motion.div
                                     animate={{ scale: [1, 1.05, 1] }}
                                     transition={{ duration: 2.8, repeat: Infinity }}
                                     style={{ position: "absolute", top: 16, right: 14, zIndex: 3, padding: "5px 11px 5px 8px", borderRadius: 999, background: "rgba(34,197,94,0.13)", border: "1px solid rgba(34,197,94,0.4)", backdropFilter: "blur(10px)", display: "flex", alignItems: "center", gap: 6 }}
                                 >
-                                    <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#07a742ff", boxShadow: "0 0 8px #22c55e55" }} />
-                                    <span style={{ fontSize: "0.4rem", fontWeight: 700, color: "#22c55e", letterSpacing: "0.1em", textTransform: "uppercase" }}>Open to Work</span>
+                                    <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 8px rgba(34,197,94,0.7)" }} />
+                                    <span style={{ fontSize: "0.6rem", fontWeight: 700, color: "#22c55e", letterSpacing: "0.1em", textTransform: "uppercase" }}>Open to Work</span>
                                 </motion.div>
 
-                                {/* name + title over bottom gradient */}
-                                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "10px 16px 10px", zIndex: 3 }}>
-                                    <p style={{ margin: 0, fontSize: "0.88rem", fontWeight: 800, color: "#fff", letterSpacing: "-0.01em" }}>{personalInfo.name}</p>
-                                    <p style={{ margin: "2px 0 0", fontSize: "0.67rem", color: "rgba(0,212,255,0.9)", fontWeight: 500 }}>{personalInfo.title}</p>
+                                {/* Name + title overlay */}
+                                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "10px 16px", zIndex: 3 }}>
+                                    <p style={{ margin: 0, fontSize: "0.88rem", fontWeight: 800, color: isLight ? "#0f1e30" : "#fff", letterSpacing: "-0.01em" }}>{personalInfo.name}</p>
+                                    <p style={{ margin: "2px 0 0", fontSize: "0.67rem", color: "var(--accent)", fontWeight: 500 }}>{personalInfo.title}</p>
                                 </div>
                             </div>
 
-                            {/* ── Tech icon strip ── */}
-                            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 7, padding: "13px 14px", background: "rgba(5, 9, 20, 0.95)", backdropFilter: "blur(20px)", borderTop: "1px solid rgba(0,212,255,0.08)" }}>
-                                {CARD_ICONS.map(({ icon: Icon, color, label }, i) => (
-                                    <motion.div key={label}
-                                        initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.8 + i * 0.07 }}
-                                        whileHover={{ scale: 1.28, y: -7 }}
-                                        title={label}
-                                        style={{ width: 37, height: 37, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", background: `${color}12`, border: `1.5px solid ${color}28`, flexShrink: 0, cursor: "default", transition: "box-shadow 0.2s" }}
-                                        onMouseEnter={e => (e.currentTarget as HTMLElement).style.boxShadow = `0 0 16px ${color}60`}
-                                        onMouseLeave={e => (e.currentTarget as HTMLElement).style.boxShadow = "none"}
-                                    >
-                                        <Icon size={18} color={color} />
-                                    </motion.div>
-                                ))}
+                            {/* Tech icon strip */}
+                            <div style={{
+                                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                                padding: "14px 16px",
+                                background: isLight ? "rgba(220,235,255,0.95)" : "rgba(5,9,20,0.95)",
+                                backdropFilter: "blur(20px)",
+                                borderTop: isLight ? "1px solid rgba(2,132,199,0.15)" : "1px solid rgba(0,212,255,0.1)",
+                                transition: "background 0.4s",
+                            }}>
+                                {CARD_ICONS.map(({ icon: Icon, color, darkColor, bg, darkBg, label }, i) => {
+                                    const resolvedColor = isLight ? color : (darkColor ?? color);
+                                    const resolvedBg = isLight ? bg : (darkBg ?? bg);
+                                    return (
+                                        <motion.div key={label}
+                                            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.8 + i * 0.07 }}
+                                            whileHover={{ scale: 1.3, y: -8 }}
+                                            title={label}
+                                            style={{ width: 40, height: 40, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", background: resolvedBg, border: `1.5px solid ${resolvedColor}50`, flexShrink: 0, cursor: "default", transition: "box-shadow 0.2s, transform 0.2s" }}
+                                            onMouseEnter={e => (e.currentTarget as HTMLElement).style.boxShadow = `0 0 18px ${resolvedColor}70`}
+                                            onMouseLeave={e => (e.currentTarget as HTMLElement).style.boxShadow = "none"}
+                                        >
+                                            <Icon size={22} color={resolvedColor} />
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
                         </motion.div>
                     </motion.div>

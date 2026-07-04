@@ -30,7 +30,7 @@ export default function Testimonials() {
 
     const slideVariants = {
         enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
-        center: { x: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
+        center: { x: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
         exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0, transition: { duration: 0.3 } }),
     };
 

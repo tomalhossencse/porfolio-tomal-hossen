@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import { Toaster } from "react-hot-toast";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Md. Tomal Hossen" }],
   icons: {
     icon: [
-      { url: "https://i.ibb.co.com/mVqnxghS/1000027089.jpg", type: "image/jpeg" },
+      { url: "https://i.ibb.co.com/xtbCsNXy/Tomal-githubprofile-removebg-preview.png", type: "image/jpeg" },
     ],
     apple: "https://i.ibb.co.com/mVqnxghS/1000027089.jpg",
   },
@@ -46,6 +47,7 @@ export default function RootLayout({
         style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}
       >
         <CustomCursor />
+        <WhatsAppWidget />
         <Toaster
           position="top-right"
           toastOptions={{

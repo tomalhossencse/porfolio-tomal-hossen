@@ -9,7 +9,7 @@ import {
     SiSvelte, SiNodedotjs, SiExpress, SiNestjs, SiMongodb,
     SiPostgresql, SiMysql, SiPrisma, SiGraphql, SiRedis,
     SiDocker, SiSocketdotio, SiPostman, SiFigma, SiGithub,
-    SiVercel, SiAmazonwebservices, SiLinux, SiVisualstudiocode,
+    SiVercel, SiLinux, SiVscodium,
 } from "react-icons/si";
 
 type IconComp = React.ComponentType<{ size?: number; color?: string }>;
@@ -20,7 +20,8 @@ const iconMap: Record<string, IconComp> = {
     SiSvelte, SiNodedotjs, SiExpress, SiNestjs, SiMongodb,
     SiPostgresql, SiMysql, SiPrisma, SiGraphql, SiRedis,
     SiDocker, SiSocketdotio, SiPostman, SiFigma, SiGithub,
-    SiVercel, SiAmazonwebservices, SiLinux, SiVisualstudiocode,
+    SiVercel, SiLinux,
+    SiVisualstudiocode: SiVscodium, // react-icons renamed; SiVscodium is the VS Code icon
 };
 
 /* ─── detect current theme ─────────────────────────────── */
