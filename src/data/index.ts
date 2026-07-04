@@ -16,39 +16,55 @@ export const personalInfo = {
 export const aboutInfo = {
     bio: "I'm a passionate Full Stack Developer from Bangladesh who enjoys building scalable web applications. I specialize in React, Next.js, TypeScript, Node.js, Express.js, PostgreSQL, and Prisma ORM. Currently I'm focused on learning production-ready backend architecture, authentication, and database design while building real-world projects.",
     bio2: "I've built and deployed production-grade platforms — from civic tech to e-commerce — serving real users across Bangladesh. I work across the entire product lifecycle, from database schema design to responsive UI, ensuring clean code and great developer experience.",
-    quote: "\"Diploma in CS by degree, Full-stack developer by passion.\"",
+    quote: '"Diploma in CS by degree, Full-stack developer by passion."',
     specialties: [
         {
             icon: "Code2",
             title: "Frontend",
-            description: "Building responsive, interactive interfaces with React, Next.js, TypeScript, and modern CSS frameworks.",
+            description:
+                "Building responsive, interactive interfaces with React, Next.js, TypeScript, and modern CSS frameworks.",
             accent: "#0ea5e9",
         },
         {
             icon: "Server",
             title: "Backend",
-            description: "Developing robust REST APIs with Node.js, Express.js, JWT authentication, and scalable server-side logic.",
+            description:
+                "Developing robust REST APIs with Node.js, Express.js, JWT authentication, and scalable server-side logic.",
             accent: "#22c55e",
         },
         {
             icon: "Layers",
             title: "Full Stack",
-            description: "End-to-end development from PostgreSQL database design to deployment, integrating frontend and backend seamlessly.",
+            description:
+                "End-to-end development from PostgreSQL database design to deployment, integrating frontend and backend seamlessly.",
             accent: "#6366f1",
         },
         {
             icon: "Database",
             title: "Database",
-            description: "Designing and managing relational and NoSQL databases using PostgreSQL, MongoDB, and Prisma ORM.",
+            description:
+                "Designing and managing relational and NoSQL databases using PostgreSQL, MongoDB, and Prisma ORM.",
             accent: "#f59e0b",
         },
     ],
     details: [
-        { label: "Frontend", value: "React, Next.js, TypeScript, JavaScript, Tailwind CSS, Redux" },
-        { label: "Backend", value: "Node.js, Express.js, REST API, JWT Authentication, Prisma ORM" },
-        { label: "Database", value: "PostgreSQL, MongoDB, Prisma ORM, Firebase" },
+        {
+            label: "Frontend",
+            value: "React, Next.js, TypeScript, JavaScript, Tailwind CSS, Redux",
+        },
+        {
+            label: "Backend",
+            value: "Node.js, Express.js, REST API, JWT Authentication, Prisma ORM",
+        },
+        {
+            label: "Database",
+            value: "PostgreSQL, MongoDB, Prisma ORM, Firebase",
+        },
         { label: "Tools", value: "Git, GitHub, Postman, VS Code, Figma" },
-        { label: "Currently Learning", value: "Production Backend Architecture, Clean Code, System Design" },
+        {
+            label: "Currently Learning",
+            value: "Production Backend Architecture, Clean Code, System Design",
+        },
     ],
 };
 
@@ -249,9 +265,11 @@ export const projects = [
             "CityFix is a full-stack civic issue reporting platform that enables citizens to report local problems such as damaged roads, broken streetlights, waterlogging, garbage collection issues, and more. Users can upload images, track the status of their reports, and receive updates, while administrators manage and resolve reported issues through a dedicated dashboard. The platform is designed with scalability, security, and a clean user experience in mind.",
         image: "https://i.ibb.co.com/84TrjWgX/screencapture-cityfixbd-vercel-app-all-issues-2026-07-04-16-27-30.png",
 
-
-
-        screenshots: ["https://i.ibb.co.com/84TrjWgX/screencapture-cityfixbd-vercel-app-all-issues-2026-07-04-16-27-30.png", "https://i.ibb.co.com/ccXhtTPy/screencapture-cityfixbd-vercel-app-2026-07-04-16-27-09.png", "https://i.ibb.co.com/s9CLRdGZ/Screenshot-2026-07-04-163105.png"],
+        screenshots: [
+            "https://i.ibb.co.com/84TrjWgX/screencapture-cityfixbd-vercel-app-all-issues-2026-07-04-16-27-30.png",
+            "https://i.ibb.co.com/ccXhtTPy/screencapture-cityfixbd-vercel-app-2026-07-04-16-27-09.png",
+            "https://i.ibb.co.com/s9CLRdGZ/Screenshot-2026-07-04-163105.png",
+        ],
         tech: [
             "React",
             "TypeScript",
@@ -262,8 +280,8 @@ export const projects = [
             "Prisma ORM",
             "JWT",
         ],
-        liveUrl: "https://cityfix.vercel.app",
-        githubUrl: "https://github.com/yourusername/cityfix",
+        liveUrl: "cityfixbd.vercel.app",
+        githubUrl: "https://github.com/tomalhossencse/cityFix-client",
         featured: true,
         category: "Full Stack",
         year: "2026",
@@ -288,7 +306,11 @@ export const projects = [
             "ModiDhokan is a modern e-commerce frontend built with React, TypeScript, Vite, and Tailwind CSS. The application provides a clean and responsive shopping experience with product browsing, category-based navigation, an interactive user interface, and reusable React components. The project focuses on frontend architecture, performance, and responsive design while delivering a smooth user experience across different devices.",
         image: "https://i.ibb.co.com/FqBbYXys/screencapture-modi-dhokan-vercel-app-2026-07-04-16-20-27.png",
 
-        screenshots: ["https://i.ibb.co.com/FqBbYXys/screencapture-modi-dhokan-vercel-app-2026-07-04-16-20-27.png", "https://i.ibb.co.com/k2nwxVkQ/screencapture-modi-dhokan-vercel-app-products-2026-07-04-16-20-52.png", " https://i.ibb.co.com/n80YngQF/screencapture-modi-dhokan-vercel-app-orders-2026-07-04-16-21-17.png"],
+        screenshots: [
+            "https://i.ibb.co.com/FqBbYXys/screencapture-modi-dhokan-vercel-app-2026-07-04-16-20-27.png",
+            "https://i.ibb.co.com/k2nwxVkQ/screencapture-modi-dhokan-vercel-app-products-2026-07-04-16-20-52.png",
+            " https://i.ibb.co.com/n80YngQF/screencapture-modi-dhokan-vercel-app-orders-2026-07-04-16-21-17.png",
+        ],
 
         tech: [
             "React",
@@ -302,7 +324,7 @@ export const projects = [
             "React Hot Toast",
         ],
         liveUrl: "https://modi-dhokan.vercel.app/",
-        githubUrl: "https://github.com/your-github-username/modi-dhokan",
+        githubUrl: "https://github.com/tomalhossencse/modi-dhokan",
         featured: true,
         category: "Frontend",
         year: "2026",
@@ -325,10 +347,12 @@ export const projects = [
         tagline: "Single-vendor e-commerce platform for children's products",
         description:
             "Hero Kidz is a modern full-stack e-commerce web application built for selling children's toys, clothing, and accessories. The platform provides a smooth shopping experience with secure authentication, product browsing, shopping cart management, order tracking, and a responsive user interface optimized for all devices.",
-        image: "https://i.ibb.co.com/xtNwBvVS/screencapture-hero-kidz-bd-vercel-app-my-orders-2026-07-04-17-37-47.png",
+        image: "https://i.ibb.co.com/WN22XXrh/screencapture-hero-kidz-bd-vercel-app-2026-07-04-17-37-04.png",
 
-
-        screenshots: ["https://i.ibb.co.com/xtNwBvVS/screencapture-hero-kidz-bd-vercel-app-my-orders-2026-07-04-17-37-47.png", "https://i.ibb.co.com/WN22XXrh/screencapture-hero-kidz-bd-vercel-app-2026-07-04-17-37-04.png"],
+        screenshots: [
+            "https://i.ibb.co.com/xtNwBvVS/screencapture-hero-kidz-bd-vercel-app-my-orders-2026-07-04-17-37-47.png",
+            "https://i.ibb.co.com/WN22XXrh/screencapture-hero-kidz-bd-vercel-app-2026-07-04-17-37-04.png",
+        ],
         tech: [
             "Next.js",
             "React",
@@ -337,8 +361,8 @@ export const projects = [
             "NextAuth.js",
             "Tailwind CSS",
         ],
-        liveUrl: "https://hero-kidz.vercel.app/",
-        githubUrl: "https://github.com/tomalhossencse/hero-kidzz",
+        liveUrl: "https://hero-kidz-bd.vercel.app/",
+        githubUrl: "https://github.com/tomalhossencse/hero-kidz",
         featured: true,
         category: "Full Stack",
         year: "2025",
@@ -409,8 +433,16 @@ export const education = [
         institution: "Tangail Polytechnic Institute",
         period: "2021 – 2025",
         year: "2025",
-        description: "Focused on core computer science fundamentals including algorithms, data structures, object-oriented programming, database management, and software engineering principles.",
-        skills: ["Python", "C#", "OOP", "Data Structures", "Database", "Networking"],
+        description:
+            "Focused on core computer science fundamentals including algorithms, data structures, object-oriented programming, database management, and software engineering principles.",
+        skills: [
+            "Python",
+            "C#",
+            "OOP",
+            "Data Structures",
+            "Database",
+            "Networking",
+        ],
         credentialUrl: null,
     },
     {
@@ -420,9 +452,11 @@ export const education = [
         institution: "Programming Hero",
         period: "2025",
         year: "2025",
-        description: "Full-stack developer skilled in the MERN stack, REST APIs, and secure authentication. Covered React, Next.js, Node.js, Express.js, MongoDB, and production-ready deployment workflows.",
+        description:
+            "Full-stack developer skilled in the MERN stack, REST APIs, and secure authentication. Covered React, Next.js, Node.js, Express.js, MongoDB, and production-ready deployment workflows.",
         skills: ["MERN Stack", "REST API", "Next.js", "MongoDB", "JWT Auth"],
-        credentialUrl: "https://drive.google.com/file/d/1UuTlfc7PMy_2zljX1hwQgaY9iox7kY5B/view?usp=sharing",
+        credentialUrl:
+            "https://drive.google.com/file/d/1UuTlfc7PMy_2zljX1hwQgaY9iox7kY5B/view?usp=sharing",
     },
 ];
 
