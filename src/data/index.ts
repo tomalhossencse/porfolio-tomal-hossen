@@ -280,12 +280,16 @@ export const projects = [
             "Prisma ORM",
             "JWT",
         ],
-        liveUrl: "cityfixbd.vercel.app",
+        liveUrl: "https://cityfixbd.vercel.app",
         githubUrl: "https://github.com/tomalhossencse/cityFix-client",
         featured: true,
         category: "Full Stack",
         year: "2026",
         role: "Full Stack Developer",
+        demoCredentials: {
+            email: "rahim@gmail.com",
+            password: "#Rahim123",
+        },
         highlights: [
             "Secure JWT authentication with Access & Refresh Tokens",
             "Role-based authorization for Citizens and Administrators",
@@ -367,10 +371,6 @@ export const projects = [
         category: "Full Stack",
         year: "2025",
         role: "Full Stack Developer",
-        demoCredentials: {
-            email: "demo@herokidzz.com",
-            password: "demo1234",
-        },
         highlights: [
             "Single-vendor e-commerce platform for children's products",
             "Secure authentication using NextAuth.js",
